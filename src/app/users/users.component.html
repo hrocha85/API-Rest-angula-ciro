@@ -1,0 +1,51 @@
+
+<h2>Cadastre novos usuários</h2>
+<form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="nome" class="form-control" id="exampleInputNome"
+    [(ngModel)]="contato.nome" required/>
+    <small id="emailHelp" class="form-text text-muted">Escreva seu nome.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"
+    [(ngModel)]="contato.email" required email
+    />
+    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Telefone</label>
+    <input type="tel" class="form-control" id="exampleInputTel"
+    [(ngModel)]="contato.telefone" required
+    />
+    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"
+    [(ngModel)]="contato.password" required />
+    <small id="emailHelp" class="form-text text-muted"> Defina uma senha.</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="frm.invalid" >Cadastrar</button>
+</form>
+
+
+
+<br>
+
+<h2>Usuários</h2>
+<table border="1">
+
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Telefone</th>
+  </tr>
+  <tr *ngFor ="let users of this.consultService.user" >
+    <td>{{users.id}}</td>
+    <td>{{users.nome}}</td>
+    <td>{{users.telefone}}</td>
+  </tr>
+</table>

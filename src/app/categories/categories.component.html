@@ -1,0 +1,13 @@
+<h1>Categorias</h1>
+<table border="1">
+
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+
+  </tr>
+  <tr *ngFor ="let categoria of this.consultService.categories" >
+    <td>{{categoria.id}}</td>
+    <td>{{categoria.nome}}</td>
+  </tr>
+</table>
