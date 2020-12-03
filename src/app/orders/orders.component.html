@@ -1,37 +1,58 @@
-<h1>Pedidos</h1>
+<h3>Pedidos</h3>
 
-<!-- <h2>Novos pedidos</h2>
-<form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
+<h4>Novos pedidos</h4>
+<form method="POST" class=" pedidos col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
   <div class="form-group">
-    <label for="exampleInputEmail1">Nome</label>
-    <input type="nome" class="form-control" id="exampleInputNome"
-    [(ngModel)]="nome" required/>
+    <label for="exampleInputEmail1">Quantidade</label>
+    <input type="number" class="form-control" id="exampleInputNome" value= ""
+    [(ngModel)]="quantity" required/>
+
     <small id="emailHelp" class="form-text text-muted">Escreva seu nome.</small>
   </div>
+
+  <div class="form-group" [(ngModel)]="payment" >
+    <select name="payment" >
+      <option value="valor1" invalid ></option><br>
+      <option value="valor1">PAID</option>
+      <option value="valor2" >WAITING_PAYMENT</option>
+    </select>
+    <small id="emailHelp" class="form-text text-muted">Selecione o meio de pagamento.</small>
+  </div>
+
+  <div class="form-group" name="Client"[(ngModel)]="client" >
+    <select name="client" *ngFor="let clients of this.consultService.user" >
+      <option value="valor1" invalid ></option><br>
+      <option value="valor1">{{clients.nome}}</option><br>
+    </select>
+    <small id="emailHelp" class="form-text text-muted">Selecione o cliente</small>
+  </div>
+  <div class="form-group" name="product"[(ngModel)]="product" >
+    <select name="product" *ngFor="let product of this.consultService.products" >
+      <option value="valor1" invalid ></option><br>
+      <option value="porduct-selection">{{product.name}}</option>
+    </select>
+    <small id="emailHelp" class="form-text text-muted"> Selecione o produto </small>
+  </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1"
-    [(ngModel)]="email" required email
+    <label for="exampleInput">Descrição</label>
+    <input type="text" class="form-control" id="exampleInputTel"
+    [(ngModel)]="description" required name="description"
     />
-    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+    <small id="emailHelp" class="form-text text-muted"> Crie uma descrição</small>
   </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Telefone</label>
-    <input type="tel" class="form-control" id="exampleInputTel"
-    [(ngModel)]="telefone" required
-    />
-    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+  <div class="form-group" name="categories"[(ngModel)]="categories" >
+    <select name="categories" *ngFor="let categoria of this.consultService.categories" >
+      <option value="valor1" invalid ></option><br>
+      <option value="porduct-selection">{{categoria.nome}}</option>
+    </select>
+    <small id="emailHelp" class="form-text text-muted"> Selecione o produto </small>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"
-    [(ngModel)]="password" required />
-    <small id="emailHelp" class="form-text text-muted"> Defina uma senha.</small>
-  </div>
+
 
   <button type="submit" class="btn btn-primary" [disabled]="frm.invalid" >Cadastrar</button>
-</form> -->
+</form>
 
+<br>
 
 
 <table border="1">
