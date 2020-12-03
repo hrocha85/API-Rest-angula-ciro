@@ -1,36 +1,37 @@
-<!--
+
 <h2>Cadastre novos usuários</h2>
 <form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
   <div class="form-group">
     <label for="exampleInputEmail1">Nome</label>
-    <input type="nome" class="form-control" id="exampleInputNome"
-    [(ngModel)]="contato.nome" required/>
-    <small id="emailHelp" class="form-text text-muted">Escreva seu nome.</small>
+    <input name='nome' type="nome" class="form-control" id="exampleInputNome"
+    [(ngModel)]="nome" required/>
+    <small id="emailHelp" class="form-text text-muted">Escreva Nome do seu produto.</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1"
-    [(ngModel)]="contato.email" required email
+    <label for="exampleInputEmail1">Descrição</label>
+    <input name='description' type="text" class="form-control" id="exampleInputEmail1"
+    [(ngModel)]="description"
     />
-    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+    <small id="emailHelp" class="form-text text-muted"> Escreva uma descrição.</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Telefone</label>
-    <input type="tel" class="form-control" id="exampleInputTel"
-    [(ngModel)]="contato.telefone" required
+    <label for="exampleInputEmail1">Preço</label>
+    <input name='price' type="number" class="form-control" id="exampleInputTel"
+    [(ngModel)]="price" required
     />
-    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+    <small id="emailHelp" class="form-text text-muted"> O preço do seu produto.</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"
-    [(ngModel)]="contato.password" required />
-    <small id="emailHelp" class="form-text text-muted"> Defina uma senha.</small>
+    <label for="exampleInputPassword1">Categoria</label>
+    <select *ngFor="let categorias of this.consultService.categories" class="form-control" name="categories" type="text" [(ngModel)]="categories" required >
+      <option >{{categorias.nome}}</option>
+    </select>
+    <small id="categoria" class="form-text text-muted"> Defina uma categoria.</small>
   </div>
 
   <button type="submit" class="btn btn-primary" [disabled]="frm.invalid" >Cadastrar</button>
 </form>
- -->
+
 
 
 <br>
