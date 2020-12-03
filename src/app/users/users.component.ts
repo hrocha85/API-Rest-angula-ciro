@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
   contato: any;
   nome:string;
   email:string;
-  telefone:string;
+  telefone:number;
   password:string;
 
   constructor(public consultService: ConsultService ) { }
@@ -34,6 +34,8 @@ export class UsersComponent implements OnInit {
       telefone:this.telefone,
       password: this.password,
     };
+
+    console.log(info);
 
     // this.consultService.criar(info).subscribe(resposta => {
     //   // this.user.push(respostas);

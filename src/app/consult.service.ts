@@ -111,9 +111,12 @@ export class ConsultService {
 
   // }
 
-  criarCategoria(nome: any) {
-    return this.http.post('http://localhost:8080/categories', nome);
-  }
+  // criarCategoria(nome: any) {
+
+  //   this.http.post<any>('http://localhost:8080/categories', nome)
+
+
+  // }
 
   pushCategorias() {
     // this.criarCategoria.subscribe((resposta) => {
