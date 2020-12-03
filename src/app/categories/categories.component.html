@@ -1,27 +1,32 @@
 <h1>Categorias</h1>
 
-
 <h2>Cadastre nova categoria</h2>
-<form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
+<form method="POST" class="col-6" #frm="ngForm" (ngSubmit)="criar(frm)">
   <div class="form-group">
     <label for="exampleInputEmail1">Nome</label>
-    <input type="nome" class="form-control" id="exampleInputNome"
-    [(ngModel)]="nome" required/>
-    <small id="emailHelp" class="form-text text-muted">Escreve o nome de uma nova categoria</small>
+    <input
+      type="text"
+      name="nome"
+      class="form-control"
+      id="exampleInputNome"
+      [(ngModel)]="nome"
+      required
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >Escreve o nome de uma nova categoria</small
+    >
   </div>
 
-  <button type="submit" class="btn btn-primary"  >Cadastrar</button>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 
 <table border="1">
-
   <tr>
     <th>ID</th>
     <th>Nome</th>
-
   </tr>
-  <tr *ngFor ="let categoria of this.consultService.categories" >
-    <td>{{categoria.id}}</td>
-    <td>{{categoria.nome}}</td>
+  <tr *ngFor="let categoria of this.consultService.categories">
+    <td>{{ categoria.id }}</td>
+    <td>{{ categoria.nome }}</td>
   </tr>
 </table>
