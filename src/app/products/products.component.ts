@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ConsultService } from '../consult.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public consultService: ConsultService) {  }
 
   ngOnInit(): void {
+
+    this.consultService.updateProdutos();
+
+
   }
 
 }

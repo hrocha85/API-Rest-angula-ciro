@@ -1,1 +1,73 @@
-<p>orders works!</p>
+<h1>Pedidos</h1>
+
+<!-- <h2>Novos pedidos</h2>
+<form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="nome" class="form-control" id="exampleInputNome"
+    [(ngModel)]="nome" required/>
+    <small id="emailHelp" class="form-text text-muted">Escreva seu nome.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"
+    [(ngModel)]="email" required email
+    />
+    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Telefone</label>
+    <input type="tel" class="form-control" id="exampleInputTel"
+    [(ngModel)]="telefone" required
+    />
+    <small id="emailHelp" class="form-text text-muted"> Escreva seu email.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"
+    [(ngModel)]="password" required />
+    <small id="emailHelp" class="form-text text-muted"> Defina uma senha.</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="frm.invalid" >Cadastrar</button>
+</form> -->
+
+
+
+<table border="1">
+  <tr>
+    <th colspan="5" scope="colgroup">Pedidos</th>
+    <th colspan="5" scope="colgroup">Itens</th>
+  </tr>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Regristro</th>
+    <th scope="col">Status</th>
+    <th scope="col" >Cliente</th>
+    <th scope="col" >Email</th>
+    <th scope="col" >Quantidade</th>
+    <th scope="col">Total</th>
+    <th scope="col">Nome</th>
+    <th scope="col" >Descrição</th>
+    <th scope="col" >Categorias</th>
+  </tr>
+  <tr>
+
+  </tr>
+
+  <tr *ngFor ="let pedidos of this.consultService.orders" >
+    <td>{{pedidos.id}}</td>
+    <td>{{pedidos.moment}}</td>
+    <td>{{pedidos.orderStatus}}</td>
+    <td>{{pedidos.client.nome}}</td>
+    <td>{{pedidos.client.email}}</td>
+    <td>{{pedidos.items[0].quantity}}</td>
+    <td>{{pedidos.items[0].price}}</td>
+    <td>{{pedidos.items[0].product.name}}</td>
+    <td>{{pedidos.items[0].product.description}}</td>
+    <td>{{pedidos.items[0].product.categories[0].nome}}</td>
+
+  </tr>
+
+
+</table>

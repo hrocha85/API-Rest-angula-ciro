@@ -19,9 +19,9 @@ interface ResponseCategories{
 
 }
 
-interface ResponseOrders{
+interface ResponseOrders {
 
-  {
+
     id:string;
     moment:string;
     orderStatus: string;
@@ -32,32 +32,42 @@ interface ResponseOrders{
       telefone:number;
     }
 
-  },
+  ,
   items:{
-    quantity:2;
-
+    quantity:number;
+    price:number;
+    subtotal:number;
+  product:{
+    id:string;
+    name:string;
+    description:string;
+    price:number;
+    imgUrl:string;
+    categories:{
+      id:string;
+      nome:string;
+    }
+  },
+  payment: boolean;
+  total:number;
   }
- 
 
-}
+};
 
 interface ResponseProducts{
 
-  {
-    "id": string;
-    "name": "Produto 1",
-    "description": "Uma descricao",
-    "price": 90.5,
-    "imgUrl": "",
-    "categories": [
-      {
-        "id": 2,
-        "nome": "Books"
-      }
-    ]
-  },
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    imgUrl: string;
+    categories:{
+        id: string;
+        nome:string;
+      };
 
-}
+    };
+
 
 
 @Injectable({
@@ -73,6 +83,8 @@ export class ConsultService {
   categories:Array<ResponseCategories> = [];
 
   orders:Array<ResponseOrders> = [];
+
+  products:Array<ResponseProducts> = [];
 
 
   updateUser(){
@@ -102,13 +114,39 @@ export class ConsultService {
 
     }
 
+  updateProdutos(){
 
-
-    criar(contato: any){
-      return this.http.post('http://localhost:8080/users', contato );
+  this.http.get<Array<ResponseProducts>>('http://localhost:8080/products').subscribe(data =>{
+    this.products = data;
+    this.lastUpdate;
+    });
 
     }
 
+
+
+
+
+    // criar(contato: any){
+    //   return this.http.post('http://localhost:8080/users', contato );
+
+    // }
+
+    criarCategoria(nome: any){
+      return this.http.post('http://localhost:8080/categories', nome );
+
+    }
+
+   pushCategorias(){
+
+    this.criarCategoria.subscribe(resposta => {
+      this.categoreis.push(respostas);
+
+
+      frm.reset();
+    })
+
+   }
 
 
 

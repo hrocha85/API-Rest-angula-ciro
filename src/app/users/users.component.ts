@@ -11,6 +11,10 @@ import { ConsultService } from '../consult.service';
 export class UsersComponent implements OnInit {
   user: Array <Response> = [ ];
   contato: any;
+  nome:string;
+  email:string;
+  telefone:string;
+  password:string;
 
   constructor(public consultService: ConsultService ) { }
 
@@ -24,13 +28,20 @@ export class UsersComponent implements OnInit {
 
   criar(frm: FormGroup){
 
-    this.consultService.criar(this.contato).subscribe(resposta => {
-      this.user.push(resposta);
+    const info={
+      nome: this.nome,
+      email: this.email,
+      telefone:this.telefone,
+      password: this.password,
+    };
 
-      console.log(this.contato)
+    // this.consultService.criar(info).subscribe(resposta => {
+    //   // this.user.push(respostas);
 
-      frm.reset();
-    })
+
+    //   frm.reset();
+    // }
+    // )
   }
 
 }

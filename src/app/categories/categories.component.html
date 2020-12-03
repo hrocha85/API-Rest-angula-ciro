@@ -1,4 +1,18 @@
 <h1>Categorias</h1>
+
+
+<h2>Cadastre nova categoria</h2>
+<form method="POST" class=" col-6" #frm="ngForm" (ngSubmit)= "criar(frm)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="nome" class="form-control" id="exampleInputNome"
+    [(ngModel)]="nome" required/>
+    <small id="emailHelp" class="form-text text-muted">Escreve o nome de uma nova categoria</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary"  >Cadastrar</button>
+</form>
+
 <table border="1">
 
   <tr>
