@@ -18,6 +18,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.consultService.updateCategorias();
 
+
     this.http.post<any>('http://localhost:8080/categories',{ nome: this.nome,id: this.id}).subscribe(data =>{
       this.nome = data.nome;
 
